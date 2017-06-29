@@ -1,3 +1,4 @@
+
 version: '{build}'
 os: Windows Server 2012
 install:
@@ -13,6 +14,7 @@ install:
   - cmd: SET PATH=C:\maven\apache-maven-3.2.5\bin;%JAVA_HOME%\bin;%PATH%
   - cmd: SET MAVEN_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
+  - cmd: SET M2_HOME=c:\maven\apache-maven-3.2.5
 build_script:
   - mvn clean package --batch-mode -DskipTest
 test_script:
