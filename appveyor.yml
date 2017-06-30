@@ -16,7 +16,7 @@ install:
   - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET M2_HOME=c:\maven\apache-maven-3.2.5
 build_script:
-  - mvn clean package -Pdist,native-win -DskipTests -Dtar
+  - mvn clean package --project hadoop-common -Pdist -DskipTests -Dtar
 test_script:
   - mvn clean install --batch-mode
 cache:
