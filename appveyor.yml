@@ -2,10 +2,10 @@ version: '{build}'
 image:
   - Visual Studio 2013
 clone_folder: c:\h
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+# init:
+#  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+# on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
   - ps: |
       Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -29,7 +29,7 @@ install:
   - cmd: SET M2_HOME=c:\maven\apache-maven-3.3.9
   - cmd: SET Platform=x64
   - cmd: SET JAVA_HOME=C:\Progra~1\Java\jdk1.8.0
-  - cmd: C:\Windows\System32\cmd.exe /E:ON /V:ON /T:0E /K "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
+  - cmd: C:\Windows\System32\cmd.exe /E:ON /V:ON /C "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
 build_script:
   - mvn -Dmaven.repo.local="c:\m" clean package -Pdist -DskipTests -Dtar -e
 test_script:
