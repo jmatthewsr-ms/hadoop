@@ -22,7 +22,7 @@ install:
   - cmd: SET MAVEN_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET M2_HOME=c:\maven\apache-maven-3.3.9
-  - cmd: SET Platform=Win32
+  - cmd: SET Platform=Win64
   - cmd: SET JAVA_HOME=C:\Progra~1\Java\jdk1.8.0
 build_script:
   - mvn clean package -Pdist -DskipTests -Dtar -e
