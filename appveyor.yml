@@ -1,7 +1,6 @@
 version: '{build}'
-os: Windows Server 2012
 image:
-  - Visual Studio 2015
+  - Visual Studio 2013
 clone_folder: c:\h
 install:
   - ps: |
