@@ -19,7 +19,7 @@ install:
           'C:\protoc-2.5.0.zip'
         )
         [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\protoc-2.5.0.zip", "C:\protoc-2.5.0")
-      }    
+      }
   - cmd: SET PATH=C:\maven\apache-maven-3.3.9\bin;C:\protoc-2.5.0;%JAVA_HOME%\bin;%PATH%
   - cmd: SET MAVEN_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
