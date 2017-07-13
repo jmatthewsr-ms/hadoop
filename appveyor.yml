@@ -16,18 +16,19 @@ install:
           'https://github.com/google/protobuf/releases/download/v2.5.0/protoc-2.5.0-win32.zip',
           'C:\protoc-2.5.0.zip'
         )
-        [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\protoc-2.5.0.zip", "C:\protoc-2.5.0")
+        [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\protoc-2.5.0.zip", "C:\protoc")
       }
-  - cmd: SET PATH=C:\maven\apache-maven-3.3.9\bin;C:\protoc-2.5.0;%JAVA_HOME%\bin;%PATH%
+  - cmd: SET PATH=C:\maven\apache-maven-3.3.9\bin;C:\protoc;%JAVA_HOME%\bin;%PATH%
   - cmd: SET MAVEN_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET M2_HOME=c:\maven\apache-maven-3.3.9
   - cmd: SET Platform=x64
   - cmd: SET JAVA_HOME=C:\Progra~1\Java\jdk1.8.0
 build_script:
-  - mvn clean package -Pdist -DskipTests -Dtar -e
+  - mvn -Dmaven.repo.local="c:\m" clean package -Pdist -DskipTests -Dtar -e
 test_script:
   - mvn clean install --batch-mode
 cache:
   - C:\maven\
   - C:\m
+  - C:\protoc
