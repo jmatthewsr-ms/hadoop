@@ -2,6 +2,10 @@ version: '{build}'
 image:
   - Visual Studio 2013
 clone_folder: c:\h
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
   - ps: |
       Add-Type -AssemblyName System.IO.Compression.FileSystem
