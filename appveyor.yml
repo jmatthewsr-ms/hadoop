@@ -22,8 +22,7 @@ install:
           'C:\protoc-2.5.0.zip'
         )
         [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\protoc-2.5.0.zip", "C:\protoc")
-      }
-  - cmd: '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"'
+      }  
   - cmd: SET PATH=C:\maven\apache-maven-3.3.9\bin;C:\protoc;%JAVA_HOME%\bin;%PATH%
   - cmd: SET MAVEN_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
@@ -31,7 +30,7 @@ install:
   - cmd: SET Platform=x64
   - cmd: SET JAVA_HOME=C:\Progra~1\Java\jdk1.8.0  
 build_script:
-  - mvn -Dmaven.repo.local="c:\m" -Pdist -DskipTests -Dtar -e clean package
+  - mvn clean package -Dmaven.repo.local="c:\m" -Pdist -DskipTests -Dtar -e
 test_script:
   - mvn clean install --batch-mode
 cache:
